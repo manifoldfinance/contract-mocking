@@ -1,7 +1,7 @@
 {
-	"addresses": {
-		"1337": "0x000000861702b344d768a0b29688fdfcb58ee9f7",
-		"3": "0x0000000fbec73fb4a9e75072f19e1e8ebe3bb3dc",
-		"1": "0x000000000e101a6145f9f2e2cbeba1e539ebfe11"
-	}
+  "addresses": {
+    "1337": "0x000000861702b344d768a0b29688fdfcb58ee9f7",
+    "3": "0x0000000fbec73fb4a9e75072f19e1e8ebe3bb3dc",
+    "1": "0x000000000e101a6145f9f2e2cbeba1e539ebfe11"
+  }
 }

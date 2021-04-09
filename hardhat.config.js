@@ -8,12 +8,12 @@ require('hardhat-deploy');
  */
 module.exports = {
   defaultNetwork: 'hardhat',
-abiExporter: {
-  path: './data/abi',
-  clear: true,
-  flat: true,
-  spacing: 2
-},
+  abiExporter: {
+    path: './data/abi',
+    clear: true,
+    flat: true,
+    spacing: 2,
+  },
   networks: {
     hardhat: {},
     ganache: {

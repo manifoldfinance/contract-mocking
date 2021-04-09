@@ -1,20 +1,20 @@
 import 'dotenv/config';
-import {HardhatUserConfig} from 'hardhat/types';
+import { HardhatUserConfig } from 'hardhat/types';
 import 'hardhat-deploy';
 import '@nomiclabs/hardhat-ethers';
 import 'hardhat-gas-reporter';
 import '@typechain/hardhat';
 import 'hardhat-abi-exporter';
 import 'solidity-coverage';
-import {node_url, accounts} from './utils/network';
+import { node_url, accounts } from './utils/network';
 
 const config: HardhatUserConfig = {
-abiExporter: {
-  path: './data/abi',
-  clear: true,
-  flat: true,
-  spacing: 2
-},
+  abiExporter: {
+    path: './data/abi',
+    clear: true,
+    flat: true,
+    spacing: 2,
+  },
   solidity: {
     version: '0.8.0',
   },

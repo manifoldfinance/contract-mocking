@@ -1,13 +1,12 @@
-
-import {HardhatRuntimeEnvironment} from 'hardhat/types';
-import {DeployFunction} from 'hardhat-deploy/types';
-import {parseEther} from 'ethers/lib/utils';
+import { HardhatRuntimeEnvironment } from 'hardhat/types';
+import { DeployFunction } from 'hardhat-deploy/types';
+import { parseEther } from 'ethers/lib/utils';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const {deployments, getNamedAccounts} = hre;
-  const {deploy} = deployments;
+  const { deployments, getNamedAccounts } = hre;
+  const { deploy } = deployments;
 
-  const {deployer, simpleERC20Beneficiary} = await getNamedAccounts();
+  const { deployer, simpleERC20Beneficiary } = await getNamedAccounts();
 
   await deploy('SimpleERC20', {
     from: deployer,

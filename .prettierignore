@@ -1,0 +1,7 @@
+artifacts/
+cache/
+build/
+dist/
+*.html
+*.css
+typechain/
