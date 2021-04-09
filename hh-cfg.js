@@ -1,6 +1,7 @@
 require('@nomiclabs/hardhat-truffle5');
 require('dotenv').config();
 require('hardhat-abi-exporter');
+require('hardhat-deploy');
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
