@@ -1,13 +1,14 @@
 {
-  "name": "hardhat-web3-vue-starter",
+  "name": "@manifoldfinance/contract-mmocks",
   "version": "1.0.0",
-  "description": "An example hardhat dapp to jumpstart your project.",
+  "description": "Solidity contracts for testing deployments",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx hardhat compile",
+    "fmt": "npx prettier --config prettier.config.js --write ."
   },
-  "keywords": [],
-  "license": "ISC",
+  "keywords": ["ethereum", "solidity", "defi", "testing"],
+  "license": "MIT",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.7",
     "@nomiclabs/hardhat-truffle5": "^2.0.0",
