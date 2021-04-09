@@ -11,7 +11,7 @@ contract Manifold is ERC20, ERC20Snapshot, AccessControl {
     constructor() ERC20("Manifold", "MFT") {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _setupRole(SNAPSHOT_ROLE, msg.sender);
-        _mint(msg.sender, 2000000 * 10 ** decimals());
+        _mint(msg.sender, 2000000 * 10**decimals());
     }
 
     function snapshot() public {
@@ -19,10 +19,11 @@ contract Manifold is ERC20, ERC20Snapshot, AccessControl {
         _snapshot();
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        override(ERC20, ERC20Snapshot)
-    {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal override(ERC20, ERC20Snapshot) {
         super._beforeTokenTransfer(from, to, amount);
     }
 }

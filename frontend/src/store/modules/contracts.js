@@ -1,11 +1,11 @@
-import Calc from "../../contracts/Calc.json";
-import addresses from "../../contracts/addresses.json";
+import Calc from '../../contracts/Calc.json';
+import addresses from '../../contracts/addresses.json';
 
 const state = {
   num: 0,
   calcAbi: null,
   calcAddress: null,
-  calcContract: null
+  calcContract: null,
 };
 
 const getters = {
@@ -20,7 +20,7 @@ const getters = {
   },
   getCalcContract(state) {
     return state.calcContract;
-  }
+  },
 };
 
 const actions = {
@@ -30,7 +30,7 @@ const actions = {
     let calcAddress = addresses.Calc[chainIdDec];
 
     let contract = new web3.eth.Contract(Calc.abi, calcAddress);
-    commit("setCalcContract", contract);
+    commit('setCalcContract', contract);
   },
   async fetchNum({ commit, state }) {
     if (!state.calcContract) {
@@ -39,17 +39,17 @@ const actions = {
 
     let num = await state.calcContract.methods.getNum().call();
 
-    commit("setNum", num);
+    commit('setNum', num);
   },
-  storeCalcAbi({commit}) {
-    commit("setCalcAbi", Calc.abi);
+  storeCalcAbi({ commit }) {
+    commit('setCalcAbi', Calc.abi);
   },
   storeCalcAddress({ commit, rootState }) {
     let chainIdDec = parseInt(rootState.accounts.chainId);
     let calcAddress = addresses.Calc[chainIdDec];
 
-    commit("setCalcAddress", calcAddress);
-  }
+    commit('setCalcAddress', calcAddress);
+  },
 };
 
 const mutations = {
@@ -64,7 +64,7 @@ const mutations = {
   },
   setCalcContract(state, _contract) {
     state.calcContract = _contract;
-  }
+  },
 };
 
 export default {
@@ -72,5 +72,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };
