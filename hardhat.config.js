@@ -1,12 +1,18 @@
 require('@nomiclabs/hardhat-truffle5');
 require('dotenv').config();
+require('hardhat-abi-exporter');
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
   defaultNetwork: 'hardhat',
-
+abiExporter: {
+  path: './data/abi',
+  clear: true,
+  flat: true,
+  spacing: 2
+},
   networks: {
     hardhat: {},
     ganache: {
@@ -27,8 +33,11 @@ module.exports = {
   },
 
   solidity: {
-    version: '0.7.3',
+    version: '0.8.0',
     settings: {
+      metadata: {
+        bytecodeHash: 'none',
+      },
       optimizer: {
         enabled: true,
         runs: 200,
