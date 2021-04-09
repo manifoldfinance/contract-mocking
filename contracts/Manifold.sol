@@ -1,6 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// THESE ARE FOR TESTING PURPOSES ONLY
+// TOKEN SYMBOL IS NOT ACTUALLY USED FOR THE REAL TOKEN
+// ADMIN ROLE IS FOR TESTING PURPOSES ONLY
+/**
+
+
+
+                   +----------------------no---------------------------+
+                   |                                                   |
+                   |  +------no------+            +-no--+              |
+                   v  v              |            v     |              |
+                  +-------+      +---+----+     +----+--+-+      +-----+----+
+                  |       |      |        |     |         |      |          |
+             +--->|  X1   +-yes->|    X2  +-yes>|    _    +-yes->|     X3   |
+             |    |       |      |        |     |         |      |          |
+             |    +---+---+      +--------+     +---------+      +-----+----+
+             |        |               ^                                |
+             |        |               |                                |
+             +---no---+               |                                |
+                                      +--------------yes---------------+
+
+                                                   useless diagram?
+*/                                                   
+
 import "./@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./@openzeppelin/contracts/token/ERC20/extensions/ERC20Snapshot.sol";
 import "./@openzeppelin/contracts/access/AccessControl.sol";
