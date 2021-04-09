@@ -3,7 +3,7 @@ const path = require('path');
 
 // write down contracts that you wish to deploy one-by-one (names only, no .sol extension)
 // after the run, find the ABIs and addresses in frontend/src/contracts
-const contracts = ['Calc'];
+const contracts = ['Manifold'];
 
 // DO NOT MODIFY CODE BELOW UNLESS ABSOLUTELY NECESSARY
 async function publishContract(contractName, chainId) {

@@ -1,54 +1,54 @@
-import Calc from '../../contracts/Calc.json';
-import addresses from '../../contracts/addresses.json';
+import Manifold from '../../data/abi/Manifold.json';
+import addresses from '../../../data/addresses.json';
 
 const state = {
   num: 0,
-  calcAbi: null,
-  calcAddress: null,
-  calcContract: null,
+  manifoldAbi: null,
+  manifoldAddress: null,
+  manifoldContract: null,
 };
 
 const getters = {
   getNum(state) {
     return state.num;
   },
-  getCalcAbi(state) {
-    return state.calcAbi;
+  getManifoldAbi(state) {
+    return state.manifoldAbi;
   },
-  getCalcAddress(state) {
-    return state.calcAddress;
+  getManifoldAddress(state) {
+    return state.manifoldAddress;
   },
-  getCalcContract(state) {
-    return state.calcContract;
+  getManifoldContract(state) {
+    return state.manifoldContract;
   },
 };
 
 const actions = {
-  async fetchCalcContract({ commit, rootState }) {
+  async fetchManifoldContract({ commit, rootState }) {
     let web3 = rootState.accounts.web3;
     let chainIdDec = parseInt(rootState.accounts.chainId);
-    let calcAddress = addresses.Calc[chainIdDec];
+    let manifoldAddress = addresses.Manifold[chainIdDec];
 
-    let contract = new web3.eth.Contract(Calc.abi, calcAddress);
-    commit('setCalcContract', contract);
+    let contract = new web3.eth.Contract(Manifold.abi, manifoldAddress);
+    commit('setManifoldContract', contract);
   },
   async fetchNum({ commit, state }) {
-    if (!state.calcContract) {
-      this.fetchCalcContract();
+    if (!state.manifoldContract) {
+      this.fetchManifoldContract();
     }
 
-    let num = await state.calcContract.methods.getNum().call();
+    let num = await state.manifoldContract.methods.getNum().call();
 
     commit('setNum', num);
   },
-  storeCalcAbi({ commit }) {
-    commit('setCalcAbi', Calc.abi);
+  storeManifoldAbi({ commit }) {
+    commit('setManifoldAbi', Manifold.abi);
   },
-  storeCalcAddress({ commit, rootState }) {
+  storeManifoldAddress({ commit, rootState }) {
     let chainIdDec = parseInt(rootState.accounts.chainId);
-    let calcAddress = addresses.Calc[chainIdDec];
+    let manifoldAddress = addresses.Manifold[chainIdDec];
 
-    commit('setCalcAddress', calcAddress);
+    commit('setManifoldAddress', manifoldAddress);
   },
 };
 
@@ -56,14 +56,14 @@ const mutations = {
   setNum(state, _num) {
     state.num = _num;
   },
-  setCalcAbi(state, abi) {
-    state.calcAbi = abi;
+  setManifoldAbi(state, abi) {
+    state.manifoldAbi = abi;
   },
-  setCalcAddress(state, address) {
-    state.calcAddress = address;
+  setManifoldAddress(state, address) {
+    state.manifoldAddress = address;
   },
-  setCalcContract(state, _contract) {
-    state.calcContract = _contract;
+  setManifoldContract(state, _contract) {
+    state.manifoldContract = _contract;
   },
 };
 

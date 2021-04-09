@@ -56,16 +56,16 @@ export default {
     ...mapGetters('accounts', ['getActiveAccount', 'getWeb3']),
     ...mapGetters('contracts', [
       'getNum',
-      'getCalcAbi',
-      'getCalcAddress',
-      'getCalcContract',
+      'getManifoldAbi',
+      'getManifoldAddress',
+      'getManifoldContract',
     ]),
   },
   created() {
-    this.$store.dispatch('contracts/fetchCalcContract');
+    this.$store.dispatch('contracts/fetchManifoldContract');
     this.$store.dispatch('contracts/fetchNum');
-    this.$store.dispatch('contracts/storeCalcAbi');
-    this.$store.dispatch('contracts/storeCalcAddress');
+    this.$store.dispatch('contracts/storeManifoldAbi');
+    this.$store.dispatch('contracts/storeManifoldAddress');
 
     // if web3 provider has not been yet loaded, redirect to root
     if (!this.getWeb3) {
@@ -74,7 +74,7 @@ export default {
       let component = this;
 
       // set event listener
-      this.getCalcContract.events
+      this.getManifoldContract.events
         .NumberSet({
           filter: { _from: this.getActiveAccount }, // only events from this user
         })
@@ -114,7 +114,7 @@ export default {
   },
   methods: {
     async onSubmit() {
-      await this.getCalcContract.methods.setNum(this.newValue).send({
+      await this.getManifoldContract.methods.setNum(this.newValue).send({
         from: this.getActiveAccount,
       });
     },

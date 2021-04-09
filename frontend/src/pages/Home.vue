@@ -7,7 +7,7 @@
     </div>
 
     <p>
-      This is a starter template with a dummy smart contract (Calc.sol) to
+      This is a starter template with a dummy smart contract (Manifold.sol) to
       jumpstart your project.
     </p>
 
