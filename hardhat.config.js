@@ -40,7 +40,7 @@ module.exports = {
         bytecodeHash: 'none',
       },
       optimizer: {
-        enabled: true,
+        enabled: false,
         runs: 200,
       },
     },
